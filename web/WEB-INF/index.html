@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Omie Boletos</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous" />
+
+	<link rel="stylesheet" href="css/principal.css">
+</head>
+
+<body>
+  <header>
+  		<div class="container">
+  			<h3>Omie Boletos</h3>
+  		</div>
+  		<div class="container">
+  			<div id="accordion" role="tablist">
+  				<div class="card">
+  					<div class="card-header" role="tab" id="headingOne">
+  						<h5 class="mb-0">
+  							<a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="fa fa-bars" style="margin-right: 10px;"></span>Filtros de busca</a>
+  						</h5>
+  					</div>
+  					<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+  						<div class="card-body">
+  							<form>
+  								<div class="form-row">
+  									<div class="form-group col-md-4">
+  										<label for="data-de">Data de</label>
+  										<input type="date" class="form-control form-control-sm" id="data-de" placeholder="Data de">
+  									</div>
+  									<div class="form-group col-md-4">
+  										<label for="data-ate">Data até</label>
+  										<input type="date" class="form-control form-control-sm" id="data-ate" placeholder="Data até">
+  									</div>
+  								</div>
+  								<div class="form-row">
+  									<div class="form-group col-md-4">
+  										<input type="text" class="form-control form-control-sm" id="cod-titulo" placeholder="Código título">
+  									</div>
+  									<div class="form-group col-md-4">
+  										<input type="text" class="form-control form-control-sm" id="cod-int-titulo" placeholder="Código integração título">
+  									</div>
+  								</div>
+  								<div class="form-row">
+  									<div class="form-group col-md-4">
+  										<input type="text" class="form-control form-control-sm" id="nosso-numero" placeholder="Nosso número">
+  									</div>
+  									<div class="form-group col-md-4">
+  										<input type="text" class="form-control form-control-sm" id="numero" placeholder="Número">
+  									</div>
+  								</div>
+  								<div class="btn-group">
+  									<button class="btn btn-primary btn-sm" type="button" id="buscar">Buscar</button>
+  									<button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  										<span class="sr-only">Toggle Dropdown</span>
+  									</button>
+  									<div class="dropdown-menu">
+  										<a class="dropdown-item" href="#">Hoje</a>
+  									</div>
+  								</div>
+  								<select class="custom-select">
+  									<option selected>Resultados por página</option>
+  									<option value="1">5</option>
+  									<option value="2">20</option>
+  									<option value="3">50</option>
+  								</select>
+  								<a href="https://github.com/phlipfeitosa/OmieBoletosV1"><img src="https://image.flaticon.com/icons/svg/37/37819.svg" width="16" height="16"/></a>
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</header>
+  	<br/>
+  	<section id="results">
+  		<table id="results-table" class="table table-hover table-sm">
+  			<thead>
+  				<th scope="col">#</th>
+  				<th scope="col">Número</th>
+  				<th scope="col">Nome</th>
+  				<th scope="col">Data documento</th>
+  				<th scope="col">Valor</th>
+  			</thead>
+  			<tbody>
+  				<tr class="pagina1">
+  					<th scope="row" style="width: 10%;">
+  						<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+  							<input type="checkbox" class="custom-control-input"/>
+  							<span class="custom-control-indicator"></span>
+  						</label>
+  					</th>
+  					<td style="width: 10%;"><a href="#" data-toggle="modal" data-target="#boleto-modal">1234567</a></td>
+  					<td style="width: 50%;">Philip pagina 1</td>
+  					<td style="width: 15%;">21/11/2019</td>
+  					<td style="width: 15%;">R$ 590,47</td>
+  				</tr>
+  			</tbody>
+  			<tfoot>
+  				<tr>
+  					<td colspan="2">
+  						<p id="total-results">Total: 841 resultados</p>
+  					</td>
+  					<td colspan="3">
+  						<nav aria-label="...">
+  							<ul class="pagination pagination-sm justify-content-end" id="paginator">
+  							<!--
+  								<li class="page-item disabled">
+  									<a class="page-link" href="#" tabindex="-1">Anterior</a>
+  								</li>
+  								<li class="page-item"><a class="page-link" href="#">1</a></li>
+  								<li class="page-item"><a class="page-link" href="#">2</a></li>
+  								<li class="page-item"><a class="page-link" href="#">3</a></li>
+  								<li class="page-item"><a class="page-link" href="#">4</a></li>
+  								<li class="page-item">
+  									<a class="page-link" href="#">Próximo</a>
+  								</li>
+  								<li class="page-item">
+  									<a class="page-link" href="#">Gerar boletos</a>
+  								</li>
+  							-->
+
+  							</ul>
+  						</nav>
+  					</td>
+  				</tr>
+  			</tfoot>
+  		</table>
+  	</section>
+
+  	<div id="boleto-modal" class="modal fade" tabindex="-1">
+  		<div class="modal-dialog">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<h5 class="modal-title">Exibição de boleto</h5>
+  					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  						<span aria-hidden="true">&times;</span>
+  					</button>
+  				</div>
+  				<div class="modal-body">
+  					<p>CORPO</p>
+  				</div>
+  				<div class="modal-footer">
+  					<p>Rodapé</p>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  	<button class="btn btn-primary" id="testar">Testar</button>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/principal.js"></script>
+</body>
+
+</html>
