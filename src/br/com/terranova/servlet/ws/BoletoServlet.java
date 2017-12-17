@@ -1,5 +1,8 @@
 package br.com.terranova.servlet.ws;
 
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 import br.com.terranova.servlet.ws.client.BoletoClient;
 
 public class BoletoServlet extends HttpServlet {
@@ -19,6 +22,9 @@ public class BoletoServlet extends HttpServlet {
 
     BoletoClient boletoClient = new BoletoClient();
     String boletoListarResponse = boletoClient.execute(boletoListarRequest);
+
+    PrintWriter out = response.getWriter();
+    out.print(boletoListarResponse);
 
   }
 
