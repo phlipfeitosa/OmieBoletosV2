@@ -16,7 +16,7 @@ public class BoletoServlet extends HttpServlet {
     String boletoListarRequest = request.getParameter("BoletoListarRequest");
 
     BoletoClient boletoClient = new BoletoClient();
-    BoletoListarResponse boletoListarResponse = boletoClient.execute(boletoListarRequest);
+    String boletoListarResponse = boletoClient.execute(boletoListarRequest);
 
   }
 
