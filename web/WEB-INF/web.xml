@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <servlet>
+    <servlet-name>BoletoWS</servlet-name>
+    <servlet-class>br.com.terranova.servlet.ws.BoletoServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>BoletoWS</servlet-name>
+    <url-pattern>ws/BoletoWS</url-pattern>
+  </servlet-mapping>
+</web-app>
