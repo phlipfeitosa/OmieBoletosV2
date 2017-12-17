@@ -1,5 +1,7 @@
 package br.com.terranova.servlet.ws;
 
+import br.com.terranova.servlet.ws.client.BoletoClient;
+
 public class BoletoServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     this.execute(request, response);
