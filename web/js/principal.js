@@ -1197,8 +1197,8 @@ $('#buscar').click(function() {
 
 });
 
-function addResultLine(page, numero, nome, datadocumento, valor) {
-	$('#results-table').append('<tr data-page="' + page + '">'  +
+function addResultLine(resultPage, page, numero, nome, datadocumento, valor) {
+	$('#results-table').append('<tr data-result-page="'+ resultPage +'" data-page="' + page + '">'  +
 		'<th scope="row" style="width: 10%;">' +
 		'<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">' +
 		'<input type="checkbox" class="custom-control-input"/>' +
@@ -1240,7 +1240,7 @@ function search() {
 	}
 
 	if(total > 0) {
-		addNextLink();
+		addNextLink(2);
 		toPage(1);
 		$('#total-results').html('Total ' + total + ' resultados');
 
@@ -1251,6 +1251,7 @@ function search() {
 	page = j + 1;
 	$.each(boletoListarResponse, function() {
 		var boletos = this.boletos;
+		var resultPage = this.pagina;
 
 		$.each(boletos, function() {
 			if(j == 5) {
@@ -1264,7 +1265,7 @@ function search() {
 			var nome = dadosPagador.cNome;
 			var datadocumento = this.dDataDoc;
 			var valor = this.nValorDoc;
-			addResultLine(page, numero, nome, datadocumento, valor);
+			addResultLine(resultPage, page, numero, nome, datadocumento, valor);
 
 			j++;
 
@@ -1300,8 +1301,8 @@ function addPreviousLink() {
 
 }
 
-function addNextLink() {
-	$('#paginator').append('<li class="page-item" data-link="true"><a class="page-link" href="#">Próximo</a></li><li class="page-item" data-link="true"><a class="page-link" href="#">Gerar boletos</a></li>');
+function addNextLink(page) {
+	$('#paginator').append('<li class="page-item" data-link="true"><a class="page-link" id="next-link" href="#" onclick="next(' + page + ')">Próximo</a></li><li class="page-item" data-link="true"><a class="page-link" href="#">Gerar boletos</a></li>');
 
 }
 
@@ -1338,5 +1339,16 @@ function gerarBoleto() {
 		i++;
 
 	});
+
+}
+
+function next(page) {
+	if(page == boletoListarResponse[0].total_de_paginas)
+		exit;
+
+	var newPage = page + 1;
+	$('#next-link').attr('onclick', 'next(' + newPage + ')'); // Incrementa a página
+
+	if(boletoListarResponse[newPage] == null)
 
 }
