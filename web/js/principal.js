@@ -1171,29 +1171,32 @@ $.each(results, function() { // Linhas
 
 });
 
+function executeWebService(page) {
+	/*
+		$.ajax({
+			url:'http://app.omie.com.br/api/v1/financas/boleto/',
+			contentType: "application/json; charset=utf-8",
+			dataType:'json',
+			crossDomain:true,
+			type:'POST',
+			data:dataSend,
+			success:function(data) {
+				console.log('BUSCOU COM AJAX');
+
+			},
+			error:function(data) {
+				console.log(data);
+
+			}
+
+		});
+		*/
+}
+
 //
 $('#buscar').click(function() {
-/*
-	$.ajax({
-		url:'http://app.omie.com.br/api/v1/financas/boleto/',
-		contentType: "application/json; charset=utf-8",
-		dataType:'json',
-		crossDomain:true,
-		type:'POST',
-		data:dataSend,
-		success:function(data) {
-			console.log('BUSCOU COM AJAX');
-
-		},
-		error:function(data) {
-			console.log(data);
-
-		}
-
-	});
-	*/
-
-	search();
+	executeWebService(1);
+	setSearchResults();
 
 });
 
@@ -1215,7 +1218,7 @@ function addResultLine(resultPage, page, numero, nome, datadocumento, valor) {
 
 }
 
-function search() {
+function setSearchResults() {
 	// Monta o paginador
 	$('#paginator').empty();
 	$('#results-table tbody').empty();
@@ -1344,11 +1347,55 @@ function gerarBoleto() {
 
 function next(page) {
 	if(page == boletoListarResponse[0].total_de_paginas)
-		exit;
+		return;
 
 	var newPage = page + 1;
-	$('#next-link').attr('onclick', 'next(' + newPage + ')'); // Incrementa a página
 
-	if(boletoListarResponse[newPage] == null)
+	var index = page - 1;
+	if(boletoListarResponse[index] == null) {
+		executeWebService(page);
+
+	}
+
+	// Monta o paginador
+	$('#paginator').empty();
+	var total = boletoListarResponse[0].total_de_registros;
+	var page = 0; // Páginas
+	var j = 0;    // Registros
+
+	if(total > 0)
+		addPreviousLink();
+
+/*
+	for(var i = 0; i < total; i++) {
+		if(j == 5) {
+			j = 0;
+			page++;
+
+			addPaginatorPage(page);
+
+		}
+
+		j++;
+
+	}
+*/
+
+	$('#results-table tbody tr').hide();
+	$.each($('#results-table tbody tr'), function() {
+		if($(this).data('result-page') == page) {
+			$(this).show();
+			addPaginatorPage($(this).data('page'));
+
+		}
+
+	});
+
+	if(total > 0) {
+		addNextLink(index);
+//		$('#next-link').attr('onclick', 'next(' + newPage + ')'); // Incrementa a página
+		toPage(1);
+
+	}
 
 }
