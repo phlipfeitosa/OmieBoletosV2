@@ -1357,45 +1357,12 @@ function next(page) {
 
 	}
 
-	// Monta o paginador
-	$('#paginator').empty();
-	var total = boletoListarResponse[0].total_de_registros;
-	var page = 0; // Páginas
-	var j = 0;    // Registros
-
-	if(total > 0)
-		addPreviousLink();
-
-/*
-	for(var i = 0; i < total; i++) {
-		if(j == 5) {
-			j = 0;
-			page++;
-
-			addPaginatorPage(page);
-
-		}
-
-		j++;
-
-	}
-*/
-
 	$('#results-table tbody tr').hide();
-	$.each($('#results-table tbody tr'), function() {
-		if($(this).data('result-page') == page) {
-			$(this).show();
-			addPaginatorPage($(this).data('page'));
 
-		}
+	$.each($('#paginator li'), function() {
+		if($(this).data('page') == page)
+			$(this).show();
 
 	});
-
-	if(total > 0) {
-		addNextLink(index);
-//		$('#next-link').attr('onclick', 'next(' + newPage + ')'); // Incrementa a página
-		toPage(1);
-
-	}
 
 }
