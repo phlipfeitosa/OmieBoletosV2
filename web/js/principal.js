@@ -1172,7 +1172,7 @@ $.each(results, function() { // Linhas
 });
 
 function executeWebService(page) {
-	/*
+/*
 		$.ajax({
 			url:'http://app.omie.com.br/api/v1/financas/boleto/',
 			contentType: "application/json; charset=utf-8",
@@ -1190,7 +1190,7 @@ function executeWebService(page) {
 			}
 
 		});
-		*/
+*/
 }
 
 //
