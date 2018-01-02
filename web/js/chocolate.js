@@ -76,7 +76,7 @@ function setResultsFooter(boletoListarResponse) {
 
 }
 
-function addResult(pagina, boleto) {
+function addResult(resultPage, boleto) {
   if (resultsByPage != 5 || resultsByPage != 20 || resultsByPage != 50)
     resultsByPage = 5;
 
@@ -92,7 +92,7 @@ function addResult(pagina, boleto) {
 
   });
 
-  $('#results-table tbody').append('<tr data-result-page="' + pagina + '" data-page="' + page + '">' +
+  $('#results-table tbody').append('<tr data-result-page="' + resultPage + '" data-page="' + page + '">' +
     '<th scope="row" style="width: 10%;">' +
     '<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">' +
     '<input type="checkbox" class="custom-control-input"/>' +
